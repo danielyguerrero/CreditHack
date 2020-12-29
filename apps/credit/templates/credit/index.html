@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Credit Repair</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+	 crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+	 crossorigin="anonymous"></script>
+	 <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Welcome to the Credit Hack</h1>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Account Name</th>
+					<th>Account Number</th>
+					<th>Due Date</th>
+					<th>Amount Due</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in accts %}
+				<tr>
+					<td>{{ i.name }}</td>
+					<td>{{ i.number }}</td>
+					<td>{{ i.due }}</td>
+					<td>{{ i.amount }}</td>
+					{% endfor %}	
+				</tr>
+			</tbody>
+		</table>
+
+		<br>
+
+		<a href="{% url 'create' %}">Add an Account</a>
+
+
+
+	</div>
+</body>
+</html>
